@@ -57,7 +57,7 @@ def strategy(context, data):
 
         lows = data.history(security, "low", 20, "1d").dropna()
         highs = data.history(security, "high", 20, "1d").dropna()
-        current_price = data.current(security, 'open').dropna()
+        current_price = data.current(security, "open").dropna()
         
         low_reg = LinearRegression().fit(np.array(range(20)).reshape(-1,1), lows)
         high_reg = LinearRegression().fit(np.array(range(20)).reshape(-1,1), highs)
